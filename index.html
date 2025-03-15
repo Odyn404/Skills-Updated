@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Umiejętności</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #05030a, #1a1a2e, #0b0c10);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden; 
+        }
+        .container {
+            max-width: 95%;
+            width: 900px;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            padding: 25px; 
+            backdrop-filter: blur(25px);
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            color: #ff4500;
+            font-size: 30px; 
+            text-transform: uppercase;
+            animation: glow 1.5s infinite alternate;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ff4500; }
+            to { text-shadow: 0 0 30px #ff5733, 0 0 40px #ff6347; }
+        }
+        h2 {
+            color: #ffcc00;
+            margin-top: 20px;
+            font-size: 20px; 
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+        }
+        h2:hover {
+            color: #ff4500;
+            transform: scale(1.15);
+        }
+        ul {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-left: 8px solid #ffcc00;
+            list-style-type: none;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            animation: float 3s ease-in-out infinite alternate;
+        }
+        ul:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+        }
+        li {
+            margin: 10px 0; 
+            font-size: 20px; 
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+            padding-left: 30px;
+        }
+        li:before {
+            content: '\2726';
+            color: #00ffaa;
+            font-size: 30px; 
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        li:hover {
+            color: #00ffaa;
+            text-shadow: 0 0 18px #00ffaa;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-12px); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Moje Umiejętności</h1>
+        
+        <h2>Podstawowe umiejętności:</h2>
+        <ul>
+            <li>HTML / CSS</li>
+            <li>Tworzenie stron internetowych</li>
+            <li>Strony wizytówki</li>
+            <li>Style CSS</li>
+            <li>Layouty stron</li>
+        </ul>
+        
+        <h2>WordPress:</h2>
+        <ul>
+            <li>WordPress</li>
+            <li>Elementor</li>
+            <li>Motywy WordPress</li>
+            <li>Tworzenie stron w WordPressie</li>
+            <li>Instalacja i konfiguracja WordPress</li>
+        </ul>
+        
+        <h2>Dodatkowe umiejętności w trakcie nauki:</h2>
+        <ul>
+            <li>JavaScript (Podstawy)</li>
+            <li>PHP + MySQL (Podstawy)</li>
+            <li>C++ (Podstawy)</li>
+        </ul>
+    </div>
+</body>
+</html>
