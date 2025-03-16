@@ -21,7 +21,7 @@
             min-height: 100vh;
             padding: 20px;
             text-align: center;
-            /* overflow: hidden; */
+            overflow: hidden;
         }
         .container {
             max-width: 95%;
@@ -29,13 +29,13 @@
             background: rgba(0, 0, 0, 0.2);
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
             border-radius: 20px;
-            padding: 25px; 
+            padding: 25px;
             backdrop-filter: blur(25px);
             animation: fadeIn 2s ease-in-out;
         }
         h1 {
             color: #ff4500;
-            font-size: 30px; 
+            font-size: 30px;
             text-transform: uppercase;
             animation: glow 1.5s infinite alternate;
             letter-spacing: 2px;
@@ -48,7 +48,7 @@
         h2 {
             color: #ffcc00;
             margin-top: 20px;
-            font-size: 20px; 
+            font-size: 20px;
             transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
             text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
         }
@@ -71,24 +71,37 @@
             box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
         }
         li {
-            margin: 10px 0; 
-            font-size: 20px; 
+            margin: 10px 0;
+            font-size: 20px;
             font-weight: bold;
             transition: color 0.3s ease-in-out;
             position: relative;
             padding-left: 30px;
         }
-        li:before {
-            content: '\2726';
+        li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        li a:hover {
             color: #00ffaa;
-            font-size: 30px; 
+            text-shadow: 0 0 18px #00ffaa;
+        }
+        /* li img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            transition: transform 0.3s;
+        } */
+        li img {
+            content: '\2726';
             position: absolute;
             left: 0;
             top: -2px;
-        }
-        li:hover {
-            color: #00ffaa;
-            text-shadow: 0 0 18px #00ffaa;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            transition: transform 0.3s;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-25px); }
@@ -97,6 +110,26 @@
         @keyframes float {
             from { transform: translateY(0px); }
             to { transform: translateY(-12px); }
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #e5ff00;
+            font-size: 11px;
+        }
+        footer a {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        footer a:hover {
+            color: #66ff00; 
+            text-decoration: underline;
+            transform: scale(1.05); 
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -107,28 +140,32 @@
         
         <h2>Podstawowe umiejętności:</h2>
         <ul>
-            <li>HTML / CSS</li>
-            <li>Tworzenie stron internetowych</li>
-            <li>Strony wizytówki</li>
-            <li>Style CSS</li>
-            <li>Layouty stron</li>
+            <li><img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000.png" alt="HTML"><a href="https://pl.wikipedia.org/wiki/HTML" target="_blank">HTML</a> / <a href="https://pl.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=x2A7j9iqynZy&format=png&color=000000" alt="Pages"><a href="https://pl.wikipedia.org/wiki/Strona_internetowa" target="_blank">Tworzenie stron internetowych</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=46355&format=png&color=000000" alt="Badge"><a href="https://tombrand.pl/strona-internetowa-wizytowka-co-to/" target="_blank">Strony wizytówki</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS"><a href="https://upmore.pl/blog/css-co-to-jest-i-do-czego-sluzy" target="_blank">Style CSS</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=30081&format=png&color=000000" alt="Layout"><a href="https://responsywnie.pl/layout-strony-internetowej/" target="_blank">Layouty stron</a></li>
         </ul>
         
         <h2>WordPress:</h2>
         <ul>
-            <li>WordPress</li>
-            <li>Elementor</li>
-            <li>Motywy WordPress</li>
-            <li>Tworzenie stron w WordPressie</li>
-            <li>Instalacja i konfiguracja WordPress</li>
+            <li><img src="https://img.icons8.com/?size=100&id=Hsm34qrtqQBr&format=png&color=000000" alt="WordPress"><a href="https://www.wpbeginner.com/pl/beginners-guide/what-is-wordpress/" target="_blank">WordPress</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=BnOyV43gP7fZ&format=png&color=000000" alt="Elementor"><a href="https://wordpresselementor.pl/czym-jest-elementor/" target="_blank">Elementor</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=08DlP4BDW2Vt&format=png&color=000000" alt="MWP"><a href="https://swiezastrona.pl/przewodnik-po-motywach-wordpress/" target="_blank">Motywy WordPress</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=LAVrxX8lrhEk&format=png&color=000000" alt="WP Pages"><a href="https://abc-wordpress.pl/tworzenie-stron-wordpress/" target="_blank">Tworzenie stron w WordPressie</a></li>
+            <li><img src="https://img.icons8.com/?size=100&id=YQvwzUlbVX4K&format=png&color=000000" alt="Instalacja"><a href="https://prodesigner.pl/instalacja-wordpress/" target="_blank">Instalacja i konfiguracja WordPress</a></li>
         </ul>
         
         <h2>Dodatkowe umiejętności w trakcie nauki:</h2>
         <ul>
-            <li>JavaScript (Podstawy)</li>
-            <li>PHP + MySQL (Podstawy)</li>
-            <li>C++ (Podstawy)</li>
+            <li><img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript"><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> (Podstawy)</li>
+            <li><img src="https://img.icons8.com/?size=100&id=qGUfLiYi1bRN&format=png&color=000000" alt="MySQL"><a href="https://pl.wikipedia.org/wiki/PHP" target="_blank">PHP</a> + <a href="https://pl.wikipedia.org/wiki/MySQL" target="_blank">MySQL</a> (Podstawy)</li>
+            <li><img src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000" alt="Cpp"><a href="https://pl.wikipedia.org/wiki/C%2B%2B" target="_blank">C++</a> (Podstawy)</li>
         </ul>
     </div>
+
+    <footer>
+        <p>&copy; 2025 <a href="https://useme.com/pl/roles/contractor/odyn404error,461613/" target="_blank">Odyn'404Error</a>, Życzę Miłego Dnia!</p>
+    </footer>
 </body>
 </html>
