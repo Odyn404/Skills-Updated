@@ -6,6 +6,7 @@
     <title>Moje Umiejętności</title>
     <style>
         * {
+            font-family: "Consolas";
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -26,8 +27,8 @@
         .container {
             max-width: 95%;
             width: 900px;
-            background: rgba(0, 0, 0, 0.2);
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            background: rgba(73, 73, 73, 0.267);
+            box-shadow: 0 0 50px rgba(75, 75, 75, 0.9);
             border-radius: 20px;
             padding: 25px;
             backdrop-filter: blur(25px);
@@ -35,7 +36,8 @@
         }
         h1 {
             color: #ff4500;
-            font-size: 30px;
+            font-size: 25px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             animation: glow 1.5s infinite alternate;
             letter-spacing: 2px;
@@ -59,21 +61,21 @@
         }
         .opis {
             font-size: 16px;
-            color: #f0f0f0;
+            color: #ffcc00;
             text-align: center;
             font-weight: 400;
             letter-spacing: 1px;
             padding: 10px 25px;
-            background: rgba(175, 2, 2, 0.253);
+            background: rgba(129, 0, 0, 0.37);
             border-radius: 12px;
             display: inline-block;
-            box-shadow: 0 0 20px rgba(243, 242, 242, 0.438);
-            border: 2px solid rgba(255, 255, 255, 0.493);
+            box-shadow: 0 0 20px rgba(99, 99, 99, 0.438);
+            border: 2px dashed;
             backdrop-filter: blur(15px);
             transition: box-shadow 0.3s ease-in-out;
         }
         .opis:hover {
-           box-shadow: 0 0 30px #00ffaa;
+           box-shadow: 0 0 20px #ffcc00;
         }
         ul {
             background: rgba(255, 255, 255, 0.15);
@@ -151,7 +153,7 @@
         .tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .tab {
             background: #ff4500;
@@ -188,12 +190,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Portfolio – Moje Umiejętności:</h1>
         <div class="tabs">
             <div class="tab active" onclick="showTab('umiejetnosci')">Co Umiem</div>
             <div class="tab" onclick="showTab('grafika')">Grafika</div>
             <div class="tab" onclick="showTab('prace')">Moje Prace</div>
         </div>
+        <h1>Portfolio – Moje Umiejętności</h1>
+        
         <div id="umiejetnosci" class="tab-content active">
         
         <p class="opis">Po najechaniu tekst się podświetli, a po kliknięciu przekieruje do linku.</p>
@@ -226,9 +229,9 @@
             <p class="opis">Edytuję przykładowe grafiki z internetu w celach edukacyjnych.</p>
             <h2>Grafika i Adobe:</h2>
             <ul>
-                <li><img src="https://img.icons8.com/?size=100&id=Cy4DRjeYKjRa&format=png&color=000000" alt="Photoshop"><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank">Adobe Photoshop</a></li>
-                <li><img src="https://img.icons8.com/?size=100&id=QaT9iepDXQab&format=png&color=000000" alt="Illustrator"><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank">Adobe Illustrator</a></li>
-                <li><img src="https://img.icons8.com/?size=100&id=2d2xZPICjR1w&format=png&color=000000" alt="Lightroom"><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank">Adobe Lightroom</a></li>
+                <li><img src="https://img.icons8.com/?size=100&id=Cy4DRjeYKjRa&format=png&color=000000" alt="Photoshop"><a href="https://pl.wikipedia.org/wiki/Adobe_Photoshop" target="_blank">Adobe Photoshop</a></li>
+                <li><img src="https://img.icons8.com/?size=100&id=QaT9iepDXQab&format=png&color=000000" alt="Illustrator"><a href="https://pl.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Adobe Illustrator</a></li>
+                <li><img src="https://img.icons8.com/?size=100&id=2d2xZPICjR1w&format=png&color=000000" alt="Lightroom"><a href="https://pl.wikipedia.org/wiki/Adobe_Lightroom" target="_blank">Adobe Lightroom</a></li>
             </ul>
         </div>
         <div id="prace" class="tab-content">
