@@ -175,8 +175,25 @@
         .tab-content.active {
             display: block;
         }
+        .li-photo { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
         .proj-zdj {
-            
+            max-width: 90%;
+            width: 400px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .proj-zdj:hover {
+            transform: scale(1.05);
+        }
     </style>
     <script>
         function showTab(tabName) {
@@ -245,9 +262,9 @@
                 <li><a href="https://github.com/Odyn404/Skills-Updated/blob/main/index.html" target="_blank">(Kod) HTML / CSS: Portfolio</a></li>
             </ul>
             <ul>
-                <li>
+                <li class="li-photo">
                     <a href="#">
-                        <img src="sluchawa edit.png" alt="Muzyka" class="proj-zdj">
+                        <img src="sluchawa edit.png" alt="Muzyka" class="proj-img">
                     </a>
                 </li>
             </ul>
