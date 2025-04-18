@@ -1,277 +1,581 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moje Umiejętności</title>
     <style>
-        * {
-            font-family: "Consolas";
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #05030a, #1a1a2e, #0b0c10);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
-            /* overflow: hidden; */
-        }
-        .container {
-            max-width: 95%;
-            width: 900px;
-            background: rgba(73, 73, 73, 0.267);
-            box-shadow: 0 0 50px rgba(75, 75, 75, 0.9);
-            border-radius: 20px;
-            padding: 25px;
-            backdrop-filter: blur(25px);
-            animation: fadeIn 2s ease-in-out;
-        }
-        h1 {
-            color: #ff4500;
-            font-size: 25px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            animation: glow 1.5s infinite alternate;
-            letter-spacing: 2px;
-            font-weight: 800;
-        }
-        @keyframes glow {
-            from { text-shadow: 0 0 20px #ff4500; }
-            to { text-shadow: 0 0 30px #ff5733, 0 0 40px #ff6347; }
-        }
-        h2 {
-            color: #ffcc00;
-            margin-top: 20px;
-            margin-left: 35px;
-            font-size: 20px;
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-        }
-        h2:hover {
-            color: #ff4500;
-            transform: scale(1.15);
-        }
-        .opis {
-            font-size: 16px;
-            color: #ffcc00;
-            text-align: center;
-            font-weight: 400;
-            letter-spacing: 1px;
-            padding: 10px 25px;
-            background: rgba(129, 0, 0, 0.37);
-            border-radius: 12px;
-            display: inline-block;
-            box-shadow: 0 0 20px rgba(99, 99, 99, 0.438);
-            border: 2px dashed;
-            backdrop-filter: blur(15px);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .opis:hover {
-           box-shadow: 0 0 20px #ffcc00;
-        }
-        ul {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 15px;
-            border-left: 8px groove #ffcc00;
-            border-right: 8px ridge #ffcc00;
-            list-style-type: none;
-            border-radius: 12px;
-            position: relative;
-            animation: float 3s ease-in-out infinite alternate;
-            
-        }
-        ul:hover {
-            box-shadow: 0 0 10px #ffcc00;
-        }
-        li {
-            margin: 10px 0;
-            font-size: 20px;
-            font-weight: bold;
-            transition: color 0.3s ease-in-out;
-            position: relative;
-            padding-left: 30px;
-        }
-        li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-        }
-        li a:hover {
-            color: #00ffaa;
-            text-shadow: 0 0 18px #00ffaa;
-        }
-        .logo2 {
-            content: '\2726';
-            position: absolute;
-            left: 0;
-            top: -2px;
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
-            transition: transform 0.3s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-12px); }
-        }
-        footer {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            color: #e5ff00;
-            font-size: 11px;
-        }
-        footer a {
-            color: #ff4500;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        footer a:hover {
-            color: #00ffaa; 
-            text-decoration: underline;
-            text-decoration-color: red;
-            text-decoration-style: dashed;
-            text-decoration-thickness: 2px;
-            transform: scale(1.05); 
-            text-shadow: 0 0 18px #00ffaa;
-        }
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-        .tab {
-            background: #ff4500;
-            color: white;
-            padding: 5px 15px;
-            margin: 0 5px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease-in-out;
-        }
-        .tab:hover, .tab.active {
-            background: #ffcc00;
-            color: black;
-            text-align: center;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .li-photo { 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+      * {
+        font-family: "Consolas";
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .proj-zdj {
-            max-width: 90%;
-            width: 400px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
-            transition: transform 0.3s ease;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #05030a, #1a1a2e, #0b0c10);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        text-align: center;
+      }
 
-        .proj-zdj:hover {
-            transform: scale(1.05);
+      .container {
+        max-width: 95%;
+        width: 900px;
+        background: rgba(73, 73, 73, 0.267);
+        box-shadow: 0 0 50px rgba(75, 75, 75, 0.9);
+        border-radius: 20px;
+        padding: 25px;
+        backdrop-filter: blur(25px);
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      h1 {
+        color: #ff4500;
+        font-size: 25px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        animation: glow 1.5s infinite alternate;
+        letter-spacing: 2px;
+        font-weight: 800;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 20px #ff4500;
         }
+        to {
+          text-shadow: 0 0 30px #ff5733, 0 0 40px #ff6347;
+        }
+      }
+
+      h2 {
+        color: #ffcc00;
+        margin-top: 20px;
+        margin-left: 35px;
+        font-size: 20px;
+        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      }
+
+      h2:hover {
+        color: #ff4500;
+        transform: scale(1.15);
+      }
+
+      .opis {
+        font-size: 16px;
+        color: #ffcc00;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 1px;
+        padding: 10px 25px;
+        background: rgba(129, 0, 0, 0.37);
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 0 20px rgba(99, 99, 99, 0.438);
+        border: 2px dashed;
+        backdrop-filter: blur(15px);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .opis:hover {
+        box-shadow: 0 0 20px #ffcc00;
+      }
+
+      ul {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px;
+        border-left: 8px groove #ffcc00;
+        border-right: 8px ridge #ffcc00;
+        list-style-type: none;
+        border-radius: 12px;
+        position: relative;
+        animation: float 3s ease-in-out infinite alternate;
+      }
+
+      ul:hover {
+        box-shadow: 0 0 10px #ffcc00;
+      }
+
+      li {
+        margin: 10px 0;
+        font-size: 20px;
+        font-weight: bold;
+        transition: color 0.3s ease-in-out;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      li a:hover {
+        color: #00ffaa;
+        text-shadow: 0 0 18px #00ffaa;
+      }
+
+      .logo2 {
+        content: "\2726";
+        position: absolute;
+        left: 0;
+        top: -2px;
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        transition: transform 0.3s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-12px);
+        }
+      }
+
+      footer {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        color: #e5ff00;
+        font-size: 11px;
+      }
+
+      footer a {
+        color: #ff4500;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      footer a:hover {
+        color: #00ffaa;
+        text-decoration: underline;
+        text-decoration-color: red;
+        text-decoration-style: dashed;
+        text-decoration-thickness: 2px;
+        transform: scale(1.05);
+        text-shadow: 0 0 18px #00ffaa;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .tab {
+        background: #ff4500;
+        color: white;
+        padding: 5px 15px;
+        margin: 0 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+      }
+
+      .tab:hover,
+      .tab.active {
+        background: #ffcc00;
+        color: black;
+        text-align: center;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .li-photo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .proj-img {
+        max-width: 90%;
+        width: 450px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .proj-zdj:hover {
+        transform: scale(1.05);
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #ffcc00;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .close:hover {
+        color: #ff4500;
+      }
     </style>
-    <script>
-        function showTab(tabName) {
-            let tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
 
-            let buttons = document.querySelectorAll('.tab');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
-        }
+    <script>
+      function showTab(tabName) {
+        let tabs = document.querySelectorAll(".tab-content");
+        tabs.forEach((tab) => tab.classList.remove("active"));
+        document.getElementById(tabName).classList.add("active");
+
+        let buttons = document.querySelectorAll(".tab");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        document
+          .querySelector(`[onclick="showTab('${tabName}')"]`)
+          .classList.add("active");
+      }
+
+      function openModal(src) {
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImg.src = src;
+      }
+
+      function closeModal() {
+        document.getElementById("imgModal").style.display = "none";
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="tabs">
-            <div class="tab active" onclick="showTab('umiejetnosci')">Co Umiem</div>
-            <div class="tab" onclick="showTab('grafika')">Grafika</div>
-            <div class="tab" onclick="showTab('prace')">Moje Prace</div>
-        </div>
-        <h1>Portfolio – Moje Umiejętności</h1>
-        
-        <div id="umiejetnosci" class="tab-content active">
-        
-        <p class="opis">Po najechaniu tekst się podświetli, a po kliknięciu przekieruje do linku.</p>
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('umiejetnosci')">Umiejętności</div>
+        <div class="tab" onclick="showTab('grafika')">Grafika</div>
+        <div class="tab" onclick="showTab('prace')">Moje Prace</div>
+      </div>
+      <h1>Portfolio – Moje Umiejętności</h1>
+
+      <div id="umiejetnosci" class="tab-content active">
+        <p class="opis">
+          Po najechaniu tekst się podświetli, a po kliknięciu przekieruje do
+          linku.
+        </p>
         <h2>Podstawowe umiejętności:</h2>
         <ul>
-            <li><img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000.png" alt="HTML" class="logo2"><a href="https://pl.wikipedia.org/wiki/HTML" target="_blank">HTML</a> / <a href="https://pl.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">CSS</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=x2A7j9iqynZy&format=png&color=000000" alt="Pages" class="logo2"><a href="https://pl.wikipedia.org/wiki/Strona_internetowa" target="_blank">Tworzenie stron internetowych</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=46355&format=png&color=000000" alt="Badge" class="logo2"><a href="https://tombrand.pl/strona-internetowa-wizytowka-co-to/" target="_blank">Strony wizytówki</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000" alt="CSS" class="logo2"><a href="https://upmore.pl/blog/css-co-to-jest-i-do-czego-sluzy" target="_blank">Style CSS</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=30081&format=png&color=000000" alt="Layout" class="logo2"><a href="https://responsywnie.pl/layout-strony-internetowej/" target="_blank">Layouty stron</a></li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000.png"
+              alt="HTML"
+              class="logo2"
+            /><a href="https://pl.wikipedia.org/wiki/HTML" target="_blank"
+              >HTML</a
+            >
+            /
+            <a
+              href="https://pl.wikipedia.org/wiki/Cascading_Style_Sheets"
+              target="_blank"
+              >CSS</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=x2A7j9iqynZy&format=png&color=000000"
+              alt="Pages"
+              class="logo2"
+            /><a
+              href="https://pl.wikipedia.org/wiki/Strona_internetowa"
+              target="_blank"
+              >Tworzenie stron internetowych</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=46355&format=png&color=000000"
+              alt="Badge"
+              class="logo2"
+            /><a
+              href="https://tombrand.pl/strona-internetowa-wizytowka-co-to/"
+              target="_blank"
+              >Strony wizytówki</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"
+              alt="CSS"
+              class="logo2"
+            /><a
+              href="https://upmore.pl/blog/css-co-to-jest-i-do-czego-sluzy"
+              target="_blank"
+              >Style CSS</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=30081&format=png&color=000000"
+              alt="Layout"
+              class="logo2"
+            /><a
+              href="https://responsywnie.pl/layout-strony-internetowej/"
+              target="_blank"
+              >Layouty stron</a
+            >
+          </li>
         </ul>
-        
+
         <h2>WordPress:</h2>
         <ul>
-            <li><img src="https://img.icons8.com/?size=100&id=Hsm34qrtqQBr&format=png&color=000000" alt="WordPress" class="logo2"><a href="https://www.wpbeginner.com/pl/beginners-guide/what-is-wordpress/" target="_blank">WordPress</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=BnOyV43gP7fZ&format=png&color=000000" alt="Elementor" class="logo2"><a href="https://wordpresselementor.pl/czym-jest-elementor/" target="_blank">Elementor</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=08DlP4BDW2Vt&format=png&color=000000" alt="MWP" class="logo2"><a href="https://swiezastrona.pl/przewodnik-po-motywach-wordpress/" target="_blank">Motywy WordPress</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=LAVrxX8lrhEk&format=png&color=000000" alt="WP Pages" class="logo2"><a href="https://abc-wordpress.pl/tworzenie-stron-wordpress/" target="_blank">Tworzenie stron w WordPressie</a></li>
-            <li><img src="https://img.icons8.com/?size=100&id=YQvwzUlbVX4K&format=png&color=000000" alt="Instalacja" class="logo2"><a href="https://prodesigner.pl/instalacja-wordpress/" target="_blank">Instalacja i konfiguracja WordPress</a></li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=Hsm34qrtqQBr&format=png&color=000000"
+              alt="WordPress"
+              class="logo2"
+            /><a
+              href="https://www.wpbeginner.com/pl/beginners-guide/what-is-wordpress/"
+              target="_blank"
+              >WordPress</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=BnOyV43gP7fZ&format=png&color=000000"
+              alt="Elementor"
+              class="logo2"
+            /><a
+              href="https://wordpresselementor.pl/czym-jest-elementor/"
+              target="_blank"
+              >Elementor</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=08DlP4BDW2Vt&format=png&color=000000"
+              alt="MWP"
+              class="logo2"
+            /><a
+              href="https://swiezastrona.pl/przewodnik-po-motywach-wordpress/"
+              target="_blank"
+              >Motywy WordPress</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=LAVrxX8lrhEk&format=png&color=000000"
+              alt="WP Pages"
+              class="logo2"
+            /><a
+              href="https://abc-wordpress.pl/tworzenie-stron-wordpress/"
+              target="_blank"
+              >Tworzenie stron w WordPressie</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=YQvwzUlbVX4K&format=png&color=000000"
+              alt="Instalacja"
+              class="logo2"
+            /><a
+              href="https://prodesigner.pl/instalacja-wordpress/"
+              target="_blank"
+              >Instalacja i konfiguracja WordPress</a
+            >
+          </li>
         </ul>
-        
+
         <h2>Dodatkowe umiejętności w trakcie nauki:</h2>
         <ul>
-            <li><img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript" class="logo2"><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> (Podstawy)</li>
-            <li><img src="https://img.icons8.com/?size=100&id=qGUfLiYi1bRN&format=png&color=000000" alt="MySQL" class="logo2"><a href="https://pl.wikipedia.org/wiki/PHP" target="_blank">PHP</a> + <a href="https://pl.wikipedia.org/wiki/MySQL" target="_blank">MySQL</a> (Podstawy)</li>
-            <li><img src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000" alt="Cpp" class="logo2"><a href="https://pl.wikipedia.org/wiki/C%2B%2B" target="_blank">C++</a> (Podstawy)</li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"
+              alt="JavaScript"
+              class="logo2"
+            /><a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank"
+              >JavaScript</a
+            >
+            (Podstawy)
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=qGUfLiYi1bRN&format=png&color=000000"
+              alt="MySQL"
+              class="logo2"
+            /><a href="https://pl.wikipedia.org/wiki/PHP" target="_blank"
+              >PHP</a
+            >
+            +
+            <a href="https://pl.wikipedia.org/wiki/MySQL" target="_blank"
+              >MySQL</a
+            >
+            (Podstawy)
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000"
+              alt="Cpp"
+              class="logo2"
+            /><a href="https://pl.wikipedia.org/wiki/C%2B%2B" target="_blank"
+              >C++</a
+            >
+            (Podstawy)
+          </li>
         </ul>
-        </div>
-        <div id="grafika" class="tab-content">
-            <p class="opis">Edytuję przykładowe grafiki z internetu w celach edukacyjnych.</p>
-            <h2>Grafika i Adobe:</h2>
-            <ul>
-                <li><img src="https://img.icons8.com/?size=100&id=Cy4DRjeYKjRa&format=png&color=000000" alt="Photoshop" class="logo2"><a href="https://pl.wikipedia.org/wiki/Adobe_Photoshop" target="_blank">Adobe Photoshop</a></li>
-                <li><img src="https://img.icons8.com/?size=100&id=QaT9iepDXQab&format=png&color=000000" alt="Illustrator" class="logo2"><a href="https://pl.wikipedia.org/wiki/Adobe_Illustrator" target="_blank">Adobe Illustrator</a></li>
-                <li><img src="https://img.icons8.com/?size=100&id=2d2xZPICjR1w&format=png&color=000000" alt="Lightroom" class="logo2"><a href="https://pl.wikipedia.org/wiki/Adobe_Lightroom" target="_blank">Adobe Lightroom</a></li>
-            </ul>
-        </div>
-        <div id="prace" class="tab-content">
-            <p class="opis">Tutaj będę dodawać moje projekty i realizacje.</p>
-            <h2>Moje Prace:</h2>
-            <ul>
-                <li><a href="https://odyn404.github.io/PrzykladowaStronaFirmowa/" target="_blank">(Portfolio) Przykładowa Strona Firmowa</li>
-                <li><a href="https://github.com/Odyn404/INF03" target="_blank">(Portfolio) Egzaminy INF.03</li>
-                <li><a href="https://github.com/Odyn404/Skills-Updated/blob/main/index.html" target="_blank">(Kod) HTML / CSS: Portfolio</a></li>
-            </ul>
-            <ul>
-                <li class="li-photo">
-                    <a href="#">
-                        <img src="sluchawa edit.png" alt="Muzyka" class="proj-img">
-                    </a>
-                </li>
-            </ul>
-        </div>
+      </div>
+
+      <div id="grafika" class="tab-content">
+        <p class="opis">
+          Edytuję przykładowe grafiki z internetu w celach edukacyjnych.
+        </p>
+        <h2>Grafika i Adobe:</h2>
+        <ul>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=Cy4DRjeYKjRa&format=png&color=000000"
+              alt="Photoshop"
+              class="logo2"
+            /><a
+              href="https://pl.wikipedia.org/wiki/Adobe_Photoshop"
+              target="_blank"
+              >Adobe Photoshop</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=QaT9iepDXQab&format=png&color=000000"
+              alt="Illustrator"
+              class="logo2"
+            /><a
+              href="https://pl.wikipedia.org/wiki/Adobe_Illustrator"
+              target="_blank"
+              >Adobe Illustrator</a
+            >
+          </li>
+          <li>
+            <img
+              src="https://img.icons8.com/?size=100&id=2d2xZPICjR1w&format=png&color=000000"
+              alt="Lightroom"
+              class="logo2"
+            /><a
+              href="https://pl.wikipedia.org/wiki/Adobe_Lightroom"
+              target="_blank"
+              >Adobe Lightroom</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div id="prace" class="tab-content">
+        <p class="opis">Tutaj będę dodawać moje projekty i realizacje.</p>
+        <h2>Moje Prace:</h2>
+        <ul>
+          <li>
+            <a
+              href="https://odyn404.github.io/PrzykladowaStronaFirmowa/"
+              target="_blank"
+              >(Portfolio) Przykładowa Strona Firmowa</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/Odyn404/INF03" target="_blank"
+              >(Portfolio) Egzaminy INF.03</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Odyn404/Skills-Updated/blob/main/index.html"
+              target="_blank"
+              >(Kod) HTML / CSS: Portfolio</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li class="li-photo">
+            <img
+              src="sluchawa edit.png"
+              alt="Muzyka"
+              class="proj-img"
+              onclick="openModal(this.src)"
+            />
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <div id="imgModal" class="modal" onclick="closeModal()">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage" />
+    </div>
+
     <footer>
-        <p class="copy">&copy; <a href="https://useme.com/pl/roles/contractor/odyn404error,461613/" target="_blank">Odyn'404Error</a>, Życzę Miłego Dnia!</p>
+      <p class="copy">
+        &copy;
+        <a
+          href="https://useme.com/pl/roles/contractor/odyn404error,461613/"
+          target="_blank"
+          >Odyn'404Error</a
+        >, Życzę Miłego Dnia!
+      </p>
     </footer>
-</body>
+  </body>
 </html>
